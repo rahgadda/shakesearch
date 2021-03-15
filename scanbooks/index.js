@@ -9,28 +9,81 @@
 const fs = require('fs');
 const lineByLine = require('n-readlines');
 
-//Read files in books folder
+
+// Global Variables
 const sourceFolderLocation = "../books"
+const destinationFolderLocation = "../book-index-json"
+let id = 0;
+let concatenatedString = "";
+let wordCounter = 0;
+
+//Read files in books folder
 fs.readdirSync(sourceFolderLocation).forEach(fileName => {
-  if(fileName.toString().endsWith(".txt")){
-    console.log("Processing File - "+fileName);
-    txtToJson(fileName);
-    console.log("Completed Processing File - "+fileName);
-  }
+    if (fileName.toString().endsWith(".txt")) {
+        console.log("Processing File - " + fileName);
+        processTxtFile(fileName);
+        console.log("Completed Processing File - " + fileName);
+    }
 });
 
 
-//Processing each file and create JSON
-function txtToJson(fileName){
-  let scanedBookData = {
-        table: []
-  }; 
-  let line;
-  let lineNumber = 0; 
+//Processing each file
+function processTxtFile(fileName) {
+    let scanedBookData = {
+        data: []
+    };
+    let line;
+    let lineNumber = 1;
+    id = 0;
 
-  const liner = new lineByLine(sourceFolderLocation+'/'+fileName);
-  while (line = liner.next()) {
-    console.log('Line ' + lineNumber + ': ' + line.toString('utf8'));
-    lineNumber++;
-  }
+    const liner = new lineByLine(sourceFolderLocation + '/' + fileName);
+    while (line = liner.next()) {
+        //console.log('Line ' + lineNumber + ': ' + line.toString('utf8'));
+        //console.log(line.toString('utf8').split(' ').filter(s => s).join(' '));
+
+        line.toString('utf8')
+            .split(' ').filter(s => s)
+            .join(' ').split(' ').forEach(
+                function (word) {
+                    // console.log(word);
+                    // console.log(concatenatedString);
+
+                    concatenatedString = concatenatedString + " " + word;
+                    scanedBookData.data.push(
+                        {
+                            id: id,
+                            lineNumber: lineNumber,
+                            word: word
+                        }
+                    );
+
+                    if (wordCounter > 0) {
+                        id++;
+                        scanedBookData.data.push(
+                            {
+                                id: id,
+                                lineNumber: lineNumber,
+                                word: concatenatedString
+                            }
+                        );
+                    }
+
+                    id++;
+                    wordCounter++;
+                }
+            );
+
+        concatenatedString = "";
+        wordCounter = 0;
+        lineNumber++;
+    }
+
+    //console.log(JSON.stringify(scanedBookData));
+    txt2Json(scanedBookData, fileName);
+
+}
+
+// Create Json from Txt file
+function txt2Json(scanedBookData, fileName) {
+    fs.writeFileSync(destinationFolderLocation + "/" + fileName.toString().replace('.txt', '.json'), JSON.stringify(scanedBookData), 'utf8');
 }

@@ -19,6 +19,8 @@ fs.readdirSync(sourceFolderLocation).forEach(fileName => {
   }
 });
 
+
+//Processing each file and create JSON
 function txtToJson(fileName){
   let scanedBookData = {
         table: []
@@ -26,11 +28,9 @@ function txtToJson(fileName){
   let line;
   let lineNumber = 0; 
 
-  //Processing each file
   const liner = new lineByLine(sourceFolderLocation+'/'+fileName);
   while (line = liner.next()) {
     console.log('Line ' + lineNumber + ': ' + line.toString('utf8'));
     lineNumber++;
   }
-
 }

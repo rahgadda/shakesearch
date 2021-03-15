@@ -10,7 +10,7 @@ My implementation is available at [rahgadda-shakesearch]()
 Try searching for "Hamlet" to display a set of results.
 
 ## Approach:
-- Create a Node.js project that would convert uploaded book to a repository of search index with below. Project is available [here](/scanbooks)
+- Create a Node.js project that would convert uploaded book to a repository of search index with below. Project is available [here](scanbooks)
   - sno: Serial No 
   - hashcode: MD5 Hashcode for each text
   - line number of text

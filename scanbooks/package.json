@@ -1,0 +1,12 @@
+{
+  "name": "scanbooks",
+  "version": "1.0.0",
+  "description": "This project is used to create json from books text file",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Rahul Kiran Gaddam",
+  "license": "ISC"
+}

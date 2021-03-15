@@ -6,18 +6,31 @@
 */
 
 //Lib imports
-const fs = require('fs')
+const fs = require('fs');
+const lineByLine = require('n-readlines');
 
 //Read files in books folder
 const sourceFolderLocation = "../books"
-fs.readdirSync(sourceFolderLocation).forEach(file => {
-  let scanedBookData = {
-        table: []
-  };  
-
-  if(file.toString().endsWith(".txt")){
-    console.log("Processing File - "+file);
-    
-    console.log("Completed Processing File - "+file);
+fs.readdirSync(sourceFolderLocation).forEach(fileName => {
+  if(fileName.toString().endsWith(".txt")){
+    console.log("Processing File - "+fileName);
+    txtToJson(fileName);
+    console.log("Completed Processing File - "+fileName);
   }
 });
+
+function txtToJson(fileName){
+  let scanedBookData = {
+        table: []
+  }; 
+  let line;
+  let lineNumber = 0; 
+
+  //Processing each file
+  const liner = new lineByLine(sourceFolderLocation+'/'+fileName);
+  while (line = liner.next()) {
+    console.log('Line ' + lineNumber + ': ' + line.toString('utf8'));
+    lineNumber++;
+  }
+
+}

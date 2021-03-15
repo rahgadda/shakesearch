@@ -5,13 +5,19 @@
  This file is licensed under the ISC License.
 */
 
+//Lib imports
+const fs = require('fs')
 
 //Read files in books folder
 const sourceFolderLocation = "../books"
-const fs = require('fs')
 fs.readdirSync(sourceFolderLocation).forEach(file => {
+  let scanedBookData = {
+        table: []
+  };  
+
   if(file.toString().endsWith(".txt")){
-    //console.log(file);
+    console.log("Processing File - "+file);
     
+    console.log("Completed Processing File - "+file);
   }
 });

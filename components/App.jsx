@@ -1,6 +1,6 @@
 function App() {
     return (
-        <Grid container direction="column" spacing={2} xs={12} style={{"width": "100%", "height":"100%"}}>
+        <Grid container direction="column" spacing={2} style={{"width": "100%", "height":"100%"}}>
             <Grid item container xs={2} style={{"width": "100%", "height":"100%"}} >
                 <Header />
             </Grid>

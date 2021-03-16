@@ -1,18 +1,21 @@
-
-export default function App() {
+function App() {
     return (
-        <div className={classes.root}>
-            <Grid container spacing={3}>
-                <Grid item xs={12}>
-                    <Paper className={classes.paper}>xs=12</Paper>
+        <div>
+            <Grid container direction="column">
+                <Grid item>
+                    <Header />
                 </Grid>
-                <Grid item xs={12}>
-                    <Paper className={classes.paper}>xs=12</Paper>
+                <Grid item container>
+                    <Grid item xs={0} sm={2} />
+                    <Grid item xs={12} sm={8}> Body </Grid>
+                    <Grid item xs={0} sm={2} />
                 </Grid>
-                <Grid item xs={12}>
-                    <Paper className={classes.paper}>xs=12</Paper>
+                <Grid item>
+                    <Footer />
                 </Grid>
             </Grid>
         </div>
     );
 }
+
+export default App;

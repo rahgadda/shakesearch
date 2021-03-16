@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     
     <!-- My Components -->
+    <script src="components/Header.jsx" type="text/jsx"></script>
+    <script src="components/Footer.jsx" type="text/jsx"></script>
     <script src="components/App.jsx" type="text/jsx"></script>
 </head>
 <body>
@@ -22,38 +24,11 @@
     <!-- Used to create variables -->
     <script type="text/babel">
         const rootElement = document.getElementById('root');
-        const {Grid, Paper, makeStyles} = MaterialUI;
-        const useStyles = makeStyles((theme) => ({
-                root: {
-                    flexGrow: 1,
-                },
-                paper: {
-                    padding: theme.spacing(2),
-                    textAlign: 'center',
-                    color: theme.palette.text.secondary,
-                },
-            }
-        ));
-        const classes = useStyles();
-
-        function App() {
-            return (
-                <div className={classes.root}>
-                    <Grid container spacing={3}>
-                        <Grid item xs={12}>
-                            <Paper className={classes.paper}>xs=12</Paper>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <Paper className={classes.paper}>xs=12</Paper>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <Paper className={classes.paper}>xs=12</Paper>
-                        </Grid>
-                    </Grid>
-                </div>
-            );
-        }
-
+        const {Grid} = MaterialUI;
+    </script>
+       
+    <!-- Used to create Body -->
+    <script type="text/babel">
         ReactDOM.render(
             <App />,
             rootElement

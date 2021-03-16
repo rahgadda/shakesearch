@@ -1,15 +1,8 @@
 function App() {
     return (
-        <script type="text/babel">
-            <div>
-                    const {Container} = MaterialUI;
-
-                    <Container maxWidth="sm">
-                        <div>HelloWorld</div>
-                    </Container>
-                
-            </div>
-        </script>
+        <div>
+            <h1>HelloWorld</h1>
+        </div>
     )
 }
 

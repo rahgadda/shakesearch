@@ -5,6 +5,7 @@
  This file is licensed under the ISC License.
 */
 
+
 //Lib imports
 const fs = require('fs');
 const lineByLine = require('n-readlines');
@@ -16,6 +17,8 @@ const destinationFolderLocation = "../book-index-json"
 let id = 0;
 let concatenatedString = "";
 let wordCounter = 0;
+let fileBurstingCode = 1;
+
 
 //Read files in books folder
 fs.readdirSync(sourceFolderLocation).forEach(fileName => {
@@ -47,7 +50,6 @@ function processTxtFile(fileName) {
                 function (word) {
                     // console.log(word);
                     // console.log(concatenatedString);
-
                     concatenatedString = concatenatedString + " " + word;
                     scanedBookData.data.push(
                         {
@@ -76,14 +78,19 @@ function processTxtFile(fileName) {
         concatenatedString = "";
         wordCounter = 0;
         lineNumber++;
+
+        if(lineNumber > fileBurstingCode*1000) {
+            txt2Json(scanedBookData, fileName);
+        }
     }
 
     //console.log(JSON.stringify(scanedBookData));
     txt2Json(scanedBookData, fileName);
-
 }
+
 
 // Create Json from Txt file
 function txt2Json(scanedBookData, fileName) {
-    fs.writeFileSync(destinationFolderLocation + "/" + fileName.toString().replace('.txt', '.json'), JSON.stringify(scanedBookData), 'utf8');
+    fs.writeFileSync(destinationFolderLocation + "/" + fileName.toString().replace('.txt', fileBurstingCode+'.json'), JSON.stringify(scanedBookData), 'utf8');
+    fileBurstingCode++;
 }

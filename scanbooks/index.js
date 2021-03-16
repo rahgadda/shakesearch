@@ -80,7 +80,7 @@ function processTxtFile(fileName) {
         wordCounter = 0;
         lineNumber++;
 
-        if(lineNumber > fileBurstingCode*10000) {
+        if (lineNumber > fileBurstingCode * 10000) {
             txt2Json(scanedBookData, fileName);
             scanedBookData = {
                 data: []
@@ -95,6 +95,9 @@ function processTxtFile(fileName) {
 
 // Create Json from Txt file
 function txt2Json(scanedBookData, fileName) {
-    fs.writeFileSync(destinationFolderLocation + "/" + fileName.toString().replace('.txt', fileBurstingCode+'.json'), JSON.stringify(scanedBookData), 'utf8');
+    fs.writeFileSync(
+        destinationFolderLocation + "/" + fileName.toString().replace('.txt', fileBurstingCode + '.json'), 
+        JSON.stringify(scanedBookData), 
+        'utf8');
     fileBurstingCode++;
 }

@@ -14,12 +14,24 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     
     <!-- My Components -->
-    <script src="components/App.jsx" type="text/jsx"></script>
+    
 </head>
 <body>
     <div id="root"></div>
     <script type="text/babel">
         const rootElement = document.getElementById('root');
+
+        function App() {
+            return (
+                <div>
+                    const {Container} = MaterialUI;
+                    <Container maxWidth="sm">
+                        <div>HelloWorld</div>
+                    </Container>
+                </div>
+            )
+        }
+
         ReactDOM.render(
             <App />,
             rootElement

@@ -1,6 +1,6 @@
 function Header(){
     return (
-        <Grid item container direction="row">
+        <Grid container direction="row" spacing={2}>
             <Grid item xs={10} /> 
             <Grid item xs={1}>
                 LOV1

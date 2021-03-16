@@ -1,6 +1,6 @@
 function Body(){
     return (
-        <Grid item container direction="column" spacing={3} alignItems="stretch">
+        <Grid container direction="column" spacing={2} alignItems="stretch">
             <Grid item xs={1} /> 
             <Grid item xs={2}>
                 Search Box

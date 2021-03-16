@@ -1,10 +1,10 @@
 function Footer(){
     return (
-        <Grid item container direction="row">
-            <Grid item xs={2}>
+        <Grid container direction="row" spacing={2}>
+            <Grid item xs={5}>
                 Copyright © 2021
             </Grid> 
-            <Grid item xs={10} /> 
+            <Grid item xs={7} /> 
         </Grid>
     );
 }

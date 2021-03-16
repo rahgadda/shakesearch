@@ -13,8 +13,20 @@
 <body>
     <div id="root"></div>
     <script type="text/babel">
-        <script src="components/HelloWorld.jsx"></script>
-        ReactDOM.render(<HelloWorld />, document.getElementById('root'))
+        const rootElement = document.getElementById('root');
+
+        function App(){
+            return(
+                <div>
+                    <h1>Hello World!</h1>
+                </div>
+            )
+        }
+
+        ReactDOM.render(
+            <App />,
+            rootElement
+        );
     </script>
 </body>
 </html>

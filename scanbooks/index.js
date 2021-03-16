@@ -38,6 +38,7 @@ function processTxtFile(fileName) {
     let line;
     let lineNumber = 1;
     id = 0;
+    fileBurstingCode = 1;
 
     const liner = new lineByLine(sourceFolderLocation + '/' + fileName);
     while (line = liner.next()) {

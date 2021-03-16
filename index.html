@@ -20,17 +20,17 @@
     <div id="root"></div>
     <script type="text/babel">
         const rootElement = document.getElementById('root');
+        const {Container} = MaterialUI;
 
         function App() {
-            return (
-                <div>
-                    const {Container} = MaterialUI;
-                    <Container maxWidth="sm">
-                        <div>HelloWorld</div>
-                    </Container>
-                </div>
-            )
-        }
+        return (
+            <div>
+                <Container maxWidth="sm">
+                    <div>HelloWorld</div>
+                </Container>
+            </div>
+        )
+    }
 
         ReactDOM.render(
             <App />,

@@ -1,6 +1,10 @@
+const {Container} = MaterialUI;
+
 function App() {
     return (      
-        <div>HelloWorld</div>
+        <Container maxWidth="sm">
+            <div>HelloWorld</div>
+        </Container>
     )
 }
 

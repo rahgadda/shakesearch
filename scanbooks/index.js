@@ -79,7 +79,7 @@ function processTxtFile(fileName) {
         wordCounter = 0;
         lineNumber++;
 
-        if(lineNumber > fileBurstingCode*1000) {
+        if(lineNumber > fileBurstingCode*5000) {
             txt2Json(scanedBookData, fileName);
         }
     }

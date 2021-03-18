@@ -30,26 +30,26 @@ fs.readdirSync(sourceFolderLocation).forEach(fileName => {
 //Processing each file
 function processTxtFile(fileName) {
     let scannedBookData = [];
-    let lineNumber = 1;
+    let id = 1;
     fileBurstingCode = 1;
 
     const liner = new lineByLine(sourceFolderLocation + '/' + fileName);
     while (line = liner.next()) {
-        //console.log('Line ' + lineNumber + ': ' + line.toString('utf8').replace("\r",""));
+        //console.log('Line ' + id + ': ' + line.toString('utf8').replace("\r",""));
         let word = line.toString('utf8').toLowerCase().replace("\r","").trim();
 
         if(word.length > 0){
             scannedBookData.push({
-                lineNumber: lineNumber,
+                id: id,
                 word: word
             });
             
-            if (lineNumber > fileBurstingCode * 1000000) {
+            if (id > fileBurstingCode * 1000000) {
                 txt2Json(scannedBookData, fileName);
                 scannedBookData = [];
             }
+            id++;
         }
-        lineNumber++;
     }
     //console.log(JSON.stringify(scannedBookData));
     txt2Json(scannedBookData, fileName);

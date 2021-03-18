@@ -12,5 +12,5 @@ Try searching for "Hamlet" to display a set of results.
 ## Approach:
 - Created a `Node.js` project that would convert uploaded book to a repository of search index with below fields. 
   Project is available [here](scanbooks).
-  - pageNumber: Page number of text
+  - id: Unique Id of each line
   - data: Parsed Text Data

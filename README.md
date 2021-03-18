@@ -14,7 +14,7 @@ Try searching for "Hamlet" to display a set of results.
   Project is available [here](scanbooks). This project can be run as a CI-CD job/github action
   - id: Unique Id of each line.
   - word: Parsed Text Data
-- Create a `Svelte` project to display the data based on `json` generated using `Node.js` project
+- Create a `Svelte` project to display the data based on `json` generated using `Node.js` project   
   Project is available [here](search).
 
 ## Inspiration

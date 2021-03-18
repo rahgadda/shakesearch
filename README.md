@@ -12,7 +12,5 @@ Try searching for "Hamlet" to display a set of results.
 ## Approach:
 - Created a `Node.js` project that would convert uploaded book to a repository of search index with below fields. 
   Project is available [here](scanbooks).
-  - sno: Serial No
-  - hashcode: MD5 Hashcode for each text
-  - line number of text
+  - pageNumber: Page number of text
   - data: Parsed Text Data

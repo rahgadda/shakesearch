@@ -36,12 +36,12 @@ function processTxtFile(fileName) {
     const liner = new lineByLine(sourceFolderLocation + '/' + fileName);
     while (line = liner.next()) {
         //console.log('Line ' + lineNumber + ': ' + line.toString('utf8').replace("\r",""));
-        let word = line.toString('utf8').replace("\r","").trim();
+        let word = line.toString('utf8').toLowerCase().replace("\r","").trim();
 
         if(word.length > 0){
             scannedBookData.push({
                 lineNumber: lineNumber,
-                word: line.toString('utf8').replace("\r","").trim()
+                word: word
             });
             
             if (lineNumber > fileBurstingCode * 10000) {

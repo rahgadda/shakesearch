@@ -23,6 +23,8 @@ Try searching for "Hamlet" to display a set of results.
 - Currently system restrict display of data to 20 matchings. Need to support Pagination of the results.
 - Currently 12 lines of text in results cards. This should be configurable. 
 - Converting `Node.js` project to github action and provide a UI for admin to upload text files and run the action using GitHub Rest API.
+- Add support for WebWorker to support multi threading.
+- Support bursting of text file into multiple json's. Use WebWorker to load the data and processing of Search Strings.
 
 ## Inspiration
 - [Google Search](https://www.youtube.com/watch?v=tFq6Q_muwG0)

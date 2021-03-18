@@ -79,7 +79,7 @@
 
   function updateHint() {
     hintKeyWords = searchKeyWords.filter(row => {
-      if (row.word.includes(value)) return row;
+      if (row.word.includes(value.toLowerCase())) return row;
     });
 
     hint = value

@@ -14,10 +14,7 @@ const lineByLine = require('n-readlines');
 // Global Variables
 const sourceFolderLocation = "../books"
 const destinationFolderLocation = "../book-index-json"
-let id = 0;
-let concatenatedString = "";
-let wordCounter = 0;
-let fileBurstingCode = 1;
+let fileBurstingId = 1;
 
 
 //Read files in books folder
@@ -32,72 +29,38 @@ fs.readdirSync(sourceFolderLocation).forEach(fileName => {
 
 //Processing each file
 function processTxtFile(fileName) {
-    let scanedBookData = {
-        data: []
-    };
-    let line;
+    let scannedBookData = [];
     let lineNumber = 1;
-    id = 0;
     fileBurstingCode = 1;
 
     const liner = new lineByLine(sourceFolderLocation + '/' + fileName);
     while (line = liner.next()) {
-        //console.log('Line ' + lineNumber + ': ' + line.toString('utf8'));
-        //console.log(line.toString('utf8').split(' ').filter(s => s).join(' '));
+        //console.log('Line ' + lineNumber + ': ' + line.toString('utf8').replace("\r",""));
+        let word = line.toString('utf8').replace("\r","").trim();
 
-        line.toString('utf8')
-            .split(' ').filter(s => s)
-            .join(' ').split(' ').forEach(
-                function (word) {
-                    // console.log(word);
-                    // console.log(concatenatedString);
-                    concatenatedString = concatenatedString + " " + word;
-                    scanedBookData.data.push(
-                        {
-                            id: id,
-                            lineNumber: lineNumber,
-                            word: word
-                        }
-                    );
-
-                    if (wordCounter > 0) {
-                        id++;
-                        scanedBookData.data.push(
-                            {
-                                id: id,
-                                lineNumber: lineNumber,
-                                word: concatenatedString
-                            }
-                        );
-                    }
-
-                    id++;
-                    wordCounter++;
-                }
-            );
-
-        concatenatedString = "";
-        wordCounter = 0;
-        lineNumber++;
-
-        if (lineNumber > fileBurstingCode * 10000) {
-            txt2Json(scanedBookData, fileName);
-            scanedBookData = {
-                data: []
-            };
+        if(word.length > 0){
+            scannedBookData.push({
+                lineNumber: lineNumber,
+                word: line.toString('utf8').replace("\r","").trim()
+            });
+            
+            if (lineNumber > fileBurstingCode * 10000) {
+                txt2Json(scannedBookData, fileName);
+                scannedBookData = [];
+            }
         }
+        lineNumber++;
     }
-
-    //console.log(JSON.stringify(scanedBookData));
-    txt2Json(scanedBookData, fileName);
+    //console.log(JSON.stringify(scannedBookData));
+    txt2Json(scannedBookData, fileName);
 }
 
 
 // Create Json from Txt file
-function txt2Json(scanedBookData, fileName) {
+function txt2Json(scannedBookData, fileName) {
     fs.writeFileSync(
         destinationFolderLocation + "/" + fileName.toString().replace('.txt', fileBurstingCode + '.json'), 
-        JSON.stringify(scanedBookData), 
+        JSON.stringify(scannedBookData), 
         'utf8');
     fileBurstingCode++;
 }

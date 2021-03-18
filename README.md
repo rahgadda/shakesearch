@@ -18,5 +18,9 @@ Try searching for "Hamlet" to display a set of results.
 - Created a `Svelte` project to display the data based on `json`
   Project is available [here](search). Used `Svelte` to avoid using any hosting services like Heroku/Netlify 
 
+## Pending:
+- Implementation of Autocomplete. Waiting for availability of the feature (here)[https://svelte-materialify.vercel.app/components/autocomplete/]
+- Currently system restrict display of data to 20 matchings. Need to support Pagination of the results.
+
 ## Inspiration
 - [Google Search](https://www.youtube.com/watch?v=tFq6Q_muwG0)

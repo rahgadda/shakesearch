@@ -44,7 +44,7 @@ function processTxtFile(fileName) {
                 word: word
             });
             
-            if (lineNumber > fileBurstingCode * 10000) {
+            if (lineNumber > fileBurstingCode * 1000000) {
                 txt2Json(scannedBookData, fileName);
                 scannedBookData = [];
             }

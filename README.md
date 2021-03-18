@@ -21,6 +21,7 @@ Try searching for "Hamlet" to display a set of results.
 ## Pending:
 - Implementation of Autocomplete. Waiting for availability of the feature (here)[https://svelte-materialify.vercel.app/components/autocomplete/]
 - Currently system restrict display of data to 20 matchings. Need to support Pagination of the results.
+- Currently 12 lines of text in results cards. This should be configurable. 
 - Converting `Node.js` project to github action and provide a UI for admin to upload text files and run the action using GitHub Rest API.
 
 ## Inspiration

@@ -38,7 +38,6 @@
         arrayIsEmpty(hintKeyWords)
       )
     ) {
-      console.log("Entered displayResults");
       displayText = [];
         
       if (hintKeyWords.length > 20) {
@@ -47,8 +46,6 @@
 
       try {
         hintKeyWords.forEach(element => {
-          console.log("Index " + element.id);
-          //console.log(searchKeyWords.slice(element.id - 6, element.id + 6));
           element.id > 6
             ? (displayText = [
                 ...displayText,

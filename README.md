@@ -11,6 +11,11 @@ Try searching for "Hamlet" to display a set of results.
 
 ## Approach:
 - Created a `Node.js` project that would convert uploaded book to a repository of search index with below fields. 
-  Project is available [here](scanbooks).
-  - id: Unique Id of each line
-  - data: Parsed Text Data
+  Project is available [here](scanbooks). This project can be run as a CI-CD job/github action
+  - id: Unique Id of each line.
+  - word: Parsed Text Data
+- Create a `Svelte` project to display the data based on `json` generated using `Node.js` project
+  Project is available [here](search).
+
+## Inspiration
+- [Google Search](https://www.youtube.com/watch?v=tFq6Q_muwG0)

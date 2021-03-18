@@ -38,8 +38,9 @@
         arrayIsEmpty(hintKeyWords)
       )
     ) {
-      console.log("Entered ");
-
+      console.log("Entered displayResults");
+      displayText = [];
+        
       if (hintKeyWords.length > 20) {
         hintKeyWords = hintKeyWords.splice(0, 20);
       }
